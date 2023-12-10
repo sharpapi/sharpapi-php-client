@@ -181,9 +181,7 @@ at [SharpAPI.com](https://sharpapi.com/)
 
 Parses a resume (CV) file from multiple formats (PDF/DOC/DOCX/TXT/RTF) and returns an extensive object of data points.
 
-The file has to be uploaded as `form-data` parameter called `file`.
-
-An optional language parameter can also be provided (`English` value is set as the default one) .
+An optional output language parameter can also be provided (`English` value is set as the default one) .
 
 ```php
 $statusUrl = \SharpApiService::parseResume('/test/resume.pdf', 'English');
