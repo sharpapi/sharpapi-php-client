@@ -146,7 +146,7 @@ class SharpApiService
     /**
      * Generic method to check job status in polling mode and then fetch results of the dispatched job
      *
-     * @throws ClientException|GuzzleException|UnknownProperties
+     * @throws ClientException|GuzzleException
      *
      * @api
      */
