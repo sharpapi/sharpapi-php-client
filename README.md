@@ -47,18 +47,16 @@ Please refer to the official:
 ## Installation
 
 1. You can install the package via composer:
-
-```bash
-composer require sharpapi/sharpapi-php-client
-```
-
+    ```bash
+    composer require sharpapi/sharpapi-php-client
+    ```
 2. Register at [SharpApi.com](https://sharpapi.com/) and get the API key.
-
 **That's it!**
 
 ## Usage
 
 ### Simple example
+
 ```php
 $sharpApi = new \SharpAPI\SharpApiService\SharpApiService('8bKzQl3cwckfVsnsN8T8p4BsACkziEQJ72U4pXpQ');
 
@@ -68,11 +66,12 @@ $resultSharpApiJob = $sharpApi->pollJobStatusAndFetchResults($statusUrl);
 
 var_dump($resultSharpApiJob->getResultJson());
 ```
+
 Typical use case require these steps:
 
 1. Dispatch one of the available AI processing methods (this will return job processing status URL)
 2. Run `pollJobStatusAndFetchResults($statusUrl)` method which operates in polling mode, sending underneath
-   requests every 10 seconds for 180 seconds (these values can be customized, 
+   requests every 10 seconds for 180 seconds (these values can be customized,
    check `SharpApiService` source code).
 3. `SharpApiJob` object will be returned.
 4. For a job finished with `success` return status you can obtain the results with one
@@ -95,6 +94,7 @@ As long as the job is still being processed by our engine it will keep
 returning `pending` status.
 
 ### Guzzle Exceptions
+
 Underlying HTTP requests are powered with Guzzle,
 so it's a good idea to check for
 typical [Guzzle Exceptions](https://docs.guzzlephp.org/en/stable/quickstart.html#exceptions):
@@ -105,7 +105,7 @@ use GuzzleHttp\Exception\ClientException;
 // Step 1: dispatch the job to the API with one of the methods, for example:
 try {
     $statusUrl = \SharpApiService::summarizeText($text, 'German');
-    // $statusUrl example value: 'http://sharpapi.com/api/v1/job/status/75acb6dc-a975-4969-9ef1-c62cebc511cb'
+    // $statusUrl example value: 'https://sharpapi.com/api/v1/job/status/75acb6dc-a975-4969-9ef1-c62cebc511cb'
 } catch (ClientException $e) {
     // $e->getResponse()
 }
@@ -120,7 +120,6 @@ $jobResultArray = $jobResult->getResultArray();
 // ..or PHP stdClass:
 $jobResultObject = $jobResult->getResultObject();
 ```
-
 
 ### Framework Controller usage example
 
@@ -173,7 +172,10 @@ Each method always returns `SharpApiJob` object, where its
 `getResultJson / getResultArray / getResultObject`
 methods will return different data structure.
 Please refer to the detailed examples provided
-at [SharpAPI.com](https://sharpapi.com/)
+at [SharpAPI.com](https://sharpapi.com/).
+
+For methods that have language parameter you can also
+use `SharpApiLanguages` Enum values to make your code more readable.
 
 ### HR
 
@@ -241,7 +243,7 @@ Parses the customer's product review and provides its sentiment (POSITIVE/NEGATI
 with a score between 0-100%. Great for sentiment report processing for any online store.
 
 ```php
-$statusUrl = \SharpApiService::productReviewSentiment('review contents', 'English');
+$statusUrl = \SharpApiService::productReviewSentiment('review contents');
 ```
 
 #### Product Categories
@@ -347,7 +349,7 @@ Parses the Travel/Hospitality product review and provides its sentiment
 Great for sentiment report processing for any online store.
 
 ```php
-$statusUrl = \SharpApiService::travelReviewSentiment($text, 'English');
+$statusUrl = \SharpApiService::travelReviewSentiment($text);
 ```
 
 #### Tours & Activities Product Categories
