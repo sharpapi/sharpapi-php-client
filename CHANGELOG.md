@@ -2,4 +2,4 @@
 
 - v1.0.0 deployment 
 
-All notable changes to `sharpapi-laravel-client` will be documented in this file.
+All notable changes to `sharpapi-php-client` will be documented in this file.

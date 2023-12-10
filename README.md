@@ -6,8 +6,8 @@
 
 ### Unleash the full potential of your applications effortlessly by integrating powerful AI capabilities with just a few lines of code.
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/sharpapi/sharpapi-laravel-client.svg?style=flat-square)](https://packagist.org/packages/sharpapi/sharpapi-laravel-client)
-[![Total Downloads](https://img.shields.io/packagist/dt/sharpapi/sharpapi-laravel-client.svg?style=flat-square)](https://packagist.org/packages/sharpapi/sharpapi-laravel-client)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/sharpapi/sharpapi-php-client.svg?style=flat-square)](https://packagist.org/packages/sharpapi/sharpapi-php-client)
+[![Total Downloads](https://img.shields.io/packagist/dt/sharpapi/sharpapi-php-client.svg?style=flat-square)](https://packagist.org/packages/sharpapi/sharpapi-php-client)
 
 Assisting coders with the most repetitive content analysis and content generation processing needs of any app or
 platform.
@@ -388,7 +388,7 @@ $statusUrl = \SharpApiService::hospitalityProductCategories(
 
 ### Do you think our API is missing some obvious functionality?
 
-[Please let us know»](https://github.com/sharpapi/laravel-client/issues)
+[Please let us know»](https://github.com/sharpapi/sharpapi-php-client/issues)
 
 ## Changelog
 
