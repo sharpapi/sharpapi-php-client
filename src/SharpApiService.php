@@ -13,6 +13,7 @@ use Psr\Http\Message\ResponseInterface;
 use SharpAPI\SharpApiService\Dto\JobDescriptionParameters;
 use SharpAPI\SharpApiService\Dto\SharpApiJob;
 use SharpAPI\SharpApiService\Enums\SharpApiJobStatusEnum;
+use SharpAPI\SharpApiService\Enums\SharpApiLanguages;
 
 /**
  * Main Service to dispatch AI jobs to SharpAPI.com
@@ -223,7 +224,7 @@ class SharpApiService
      *
      * @api
      */
-    public function parseResume(string $filePath, string $language = 'English'): string
+    public function parseResume(string $filePath, string $language = SharpApiLanguages::ENGLISH): string
     {
         $url = $this->apiBaseUrl . '/hr/parse_resume';
         $response = $this->makeRequest(
@@ -264,7 +265,7 @@ class SharpApiService
      *
      * @api
      */
-    public function relatedSkills(string $skillName, string $language = 'English'): string
+    public function relatedSkills(string $skillName, string $language = SharpApiLanguages::ENGLISH): string
     {
         $url = $this->apiBaseUrl . '/hr/related_skills';
         $response = $this->makeRequest('POST', $url, [
@@ -283,7 +284,7 @@ class SharpApiService
      *
      * @api
      */
-    public function relatedJobPositions(string $jobPositionName, string $language = 'English'): string
+    public function relatedJobPositions(string $jobPositionName, string $language = SharpApiLanguages::ENGLISH): string
     {
         $url = $this->apiBaseUrl . '/hr/related_job_positions';
         $response = $this->makeRequest('POST', $url, [
@@ -322,7 +323,7 @@ class SharpApiService
      *
      * @api
      */
-    public function productCategories(string $productName, string $language = 'English'): string
+    public function productCategories(string $productName, string $language = SharpApiLanguages::ENGLISH): string
     {
         $url = $this->apiBaseUrl . '/ecommerce/product_categories';
         $response = $this->makeRequest('POST', $url, [
@@ -342,7 +343,7 @@ class SharpApiService
      *
      * @api
      */
-    public function generateProductIntro(string $productData, string $language = 'English'): string
+    public function generateProductIntro(string $productData, string $language = SharpApiLanguages::ENGLISH): string
     {
         $url = $this->apiBaseUrl . '/ecommerce/product_intro';
         $response = $this->makeRequest('POST', $url, [
@@ -362,7 +363,7 @@ class SharpApiService
      *
      * @api
      */
-    public function generateThankYouEmail(string $productName, string $language = 'English'): string
+    public function generateThankYouEmail(string $productName, string $language = SharpApiLanguages::ENGLISH): string
     {
         $url = $this->apiBaseUrl . '/ecommerce/thank_you_email';
         $response = $this->makeRequest('POST', $url, [
@@ -437,7 +438,7 @@ class SharpApiService
      *
      * @api
      */
-    public function summarizeText(string $text, string $language = 'English'): string
+    public function summarizeText(string $text, string $language = SharpApiLanguages::ENGLISH): string
     {
         $url = $this->apiBaseUrl . '/content/summarize';
         $response = $this->makeRequest('POST', $url, [
@@ -475,7 +476,7 @@ class SharpApiService
      *
      * @api
      */
-    public function generateSeoTags(string $text, string $language = 'English'): string
+    public function generateSeoTags(string $text, string $language = SharpApiLanguages::ENGLISH): string
     {
         $url = $this->apiBaseUrl . '/seo/generate_tags';
         $response = $this->makeRequest('POST', $url, [
@@ -518,7 +519,7 @@ class SharpApiService
         string $productName,
         string $city = '',
         string $country = '',
-        string $language = 'English'
+        string $language = SharpApiLanguages::ENGLISH
     ): string
     {
         $url = $this->apiBaseUrl . '/tth/ta_product_categories';
@@ -546,7 +547,7 @@ class SharpApiService
         string $productName,
         string $city = '',
         string $country = '',
-        string $language = 'English'
+        string $language = SharpApiLanguages::ENGLISH,
     ): string
     {
         $url = $this->apiBaseUrl . '/tth/hospitality_product_categories';
