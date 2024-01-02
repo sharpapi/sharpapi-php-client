@@ -31,7 +31,7 @@ See more at [SharpAPI.com Website &raquo;](https://sharpapi.com/)
     - Spam Content Detection: Identify and filter out spam content effectively.
     - Contact Information Extraction: Extract phone numbers and email addresses from non-standard formats for
       streamlined communication.
-    - Generate concise summaries for improved content consumption.
+    - Generate concise summaries and unique keywords/tags for improved content consumption.
     - Boost SEO efforts by automatically generating META tags based on content.
 * **HR Tech**
     - Generate complex job descriptions effortlessly, saving time in the hiring process.
@@ -77,7 +77,7 @@ $sharpApi = new \SharpAPI\SharpApiService\SharpApiService('8bKzQl3cwckfVsnsN8T8p
 
 $statusUrl = $sharpApi->productCategories('Lenovo Chromebook Laptop (2023), 14" FHD Touchscreen Slim 3, 8-Core MediaTek Kompanio 520 CPU, 4GB RAM, 128GB Storage');
 
-$resultSharpApiJob = $sharpApi->pollJobStatusAndFetchResults($statusUrl);
+$resultSharpApiJob = $sharpApi->fetchResults($statusUrl);
 
 var_dump($resultSharpApiJob->getResultJson());
 ```
@@ -85,7 +85,7 @@ var_dump($resultSharpApiJob->getResultJson());
 Typical use case require these steps:
 
 1. Dispatch one of the available AI processing methods (this will return job processing status URL)
-2. Run `pollJobStatusAndFetchResults($statusUrl)` method which operates in polling mode, sending underneath
+2. Run `fetchResults($statusUrl)` method which operates in polling mode, sending underneath
    requests every 10 seconds for 180 seconds (these values can be customized,
    check `SharpApiService` source code).
 3. `SharpApiJob` object will be returned.
@@ -126,7 +126,7 @@ try {
 }
 
 // Step 2: request to check job status in polling mode and wait for the result
-$jobResult = \SharpApiService::pollJobStatusAndFetchResults($statusUrl);
+$jobResult = \SharpApiService::fetchResults($statusUrl);
 
 // Step 3: get results of dispatched API job, f.e. this returns job result as a prettied JSON
 $jobResultJson = $jobResult->getResultJson();
@@ -162,7 +162,7 @@ class SharpTest extends Controller
             Call: 1800-394-7486 or our Singapore office +65 8888 8888'
         );
         
-        $result = $this->sharpApiService->pollJobStatusAndFetchResults($statusUrl);
+        $result = $this->sharpApiService->fetchResults($statusUrl);
         
         dd($result->getResultJson());
         /* returned:
@@ -334,6 +334,15 @@ or f.e. if you want to detect emails in places where they're not supposed to be.
 ```php
 $statusUrl = \SharpApiService::detectEmails($text);
 ```
+
+#### Generate Keywords/Tags
+
+Generates a list of unique keywords/tags based on the provided content.
+
+```php
+$statusUrl = \SharpApiService::generateKeywords($text, 'English');
+```
+
 
 #### Summarize Text
 

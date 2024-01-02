@@ -150,7 +150,7 @@ class SharpApiService
      *
      * @api
      */
-    public function pollJobStatusAndFetchResults(string $statusUrl): SharpApiJob
+    public function fetchResults(string $statusUrl): SharpApiJob
     {
         $client = new Client();
         $waitingTime = 0;
@@ -424,6 +424,24 @@ class SharpApiService
         $url = $this->apiBaseUrl . '/content/detect_spam';
         $response = $this->makeRequest('POST', $url, [
             'content' => $text,
+        ]);
+
+        return $this->parseStatusUrl($response);
+    }
+
+    /**
+     * Generates a list of unique keywords/tags based on the provided content.
+     *
+     * @throws GuzzleException
+     *
+     * @api
+     */
+    public function generateKeywords(string $text, string $language = 'English'): string
+    {
+        $url = $this->apiBaseUrl . '/content/keywords';
+        $response = $this->makeRequest('POST', $url, [
+            'content' => $text,
+            'language' => $language,
         ]);
 
         return $this->parseStatusUrl($response);
