@@ -31,7 +31,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "SharpAPI\\SharpApiService\\Tests\\": "tests/"
+      "SharpAPITest\\SharpApiService\\Tests\\": "tests/"
     }
   },
   "scripts": {
@@ -47,5 +47,8 @@
     "sort-packages": true
   },
   "minimum-stability": "dev",
-  "prefer-stable": true
+  "prefer-stable": true,
+  "require-dev": {
+    "phpunit/phpunit": "^10.5"
+  }
 }
