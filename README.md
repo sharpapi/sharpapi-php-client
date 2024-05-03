@@ -1,10 +1,10 @@
 ![SharpAPI GitHub cover](https://sharpapi.com/sharpapi-github-php-bg.jpg "SharpAPI Laravel Client")
 
-# SharpAPI PHP Client
+# SharpAPI PHP Client SDK
 
-### 🚀 Automate with AI in just two lines of code. Save countless hours and enhance your app effortlessly.
+## 🚀 Automate with AI in just two lines of code. Save countless hours and enhance your app effortlessly.
 
-## Leverage AI API to streamline workflows in E-Commerce, Marketing, Content Management, HR Tech, Travel, and more.
+### Leverage AI API to streamline workflows in E-Commerce, Marketing, Content Management, HR Tech, Travel, and more.
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/sharpapi/sharpapi-php-client.svg?style=flat-square)](https://packagist.org/packages/sharpapi/sharpapi-php-client)
 [![Total Downloads](https://img.shields.io/packagist/dt/sharpapi/sharpapi-php-client.svg?style=flat-square)](https://packagist.org/packages/sharpapi/sharpapi-php-client)
