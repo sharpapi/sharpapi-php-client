@@ -2,9 +2,9 @@
 
 # SharpAPI PHP Client - #AI Programming Interface
 
-### 🚀 AI-Powered Swiss Army Knife API
+### 🚀 Automate workflows with AI-powered API
 
-## Save countless hours and supercharge your app with AI capabilities in just 2 lines of code.
+## Leverage AI API to streamline workflows in E-Commerce, Marketing, Content Management, HR Tech, Travel, and more.
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/sharpapi/sharpapi-php-client.svg?style=flat-square)](https://packagist.org/packages/sharpapi/sharpapi-php-client)
 [![Total Downloads](https://img.shields.io/packagist/dt/sharpapi/sharpapi-php-client.svg?style=flat-square)](https://packagist.org/packages/sharpapi/sharpapi-php-client)
@@ -64,7 +64,7 @@ Please refer to the official:
 composer require sharpapi/sharpapi-php-client
 ```
 
-2. Register at [SharpApi.com](https://sharpapi.com/) and get the API key.
+2. Register at [SharpAPI.com](https://sharpapi.com/) and get the API key.
 
 3. **That's it!**
 
@@ -483,7 +483,8 @@ $statusUrl = \SharpApiService::generateKeywords(
     $text, 
     'English',    // optional language
     5,  // optional length
-    'Freaky & Curious'    // optional voice tone
+    'Freaky & Curious',    // optional voice tone
+    'add emojis!' // optional extra context instructions for content processing
   );
 ```
 
@@ -503,7 +504,8 @@ It can be adjectives like `funny` or `joyous`, or even the name of a famous writ
 $statusUrl = \SharpApiService::summarizeText(
     $text, 
     'English',     // optional language
-    'David Attenborough'    // optional voice tone
+    'David Attenborough',    // optional voice tone
+    'add emojis!' // optional extra context instructions for content processing
   );
 ```
 

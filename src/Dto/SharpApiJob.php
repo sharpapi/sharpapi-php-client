@@ -14,7 +14,7 @@ class SharpApiJob
         public string  $id,
         public string  $type,
         public string  $status,
-        public ?string $result
+        public ?stdClass $result
     )
     {
     }
@@ -66,7 +66,7 @@ class SharpApiJob
      */
     public function getResultJson(): string|bool|null
     {
-        return $this->result ? json_encode(json_decode($this->result), JSON_PRETTY_PRINT) : null;
+        return $this->result ? json_encode($this->result, JSON_PRETTY_PRINT) : null;
     }
 
     /**
@@ -76,7 +76,7 @@ class SharpApiJob
      */
     public function getResultArray(): ?array
     {
-        return $this->result ? json_decode($this->result, true) : null;
+        return (array) $this->result;
     }
 
     /**
@@ -86,6 +86,6 @@ class SharpApiJob
      */
     public function getResultObject(): ?stdClass
     {
-        return $this->result ? json_decode($this->result) : null;
+        return $this->result;
     }
 }

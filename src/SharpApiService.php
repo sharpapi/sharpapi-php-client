@@ -15,6 +15,7 @@ use SharpAPI\SharpApiService\Dto\SharpApiJob;
 use SharpAPI\SharpApiService\Dto\SharpApiSubscriptionInfo;
 use SharpAPI\SharpApiService\Enums\SharpApiJobStatusEnum;
 use SharpAPI\SharpApiService\Enums\SharpApiJobTypeEnum;
+use Spatie\Url\Url;
 
 /**
  * Main Service to dispatch AI jobs to SharpAPI.com
@@ -49,7 +50,7 @@ class SharpApiService
             throw new InvalidArgumentException('API key is required.');
         }
         $this->setApiBaseUrl($apiBaseUrl ?? 'https://sharpapi.com/api/v1');
-        $this->setUserAgent($userAgent ?? 'SharpAPIPHPAgent/1.1.0');
+        $this->setUserAgent($userAgent ?? 'SharpAPIPHPAgent/1.2.0');
     }
 
     /**
@@ -220,12 +221,17 @@ class SharpApiService
             sleep($retryAfter);
         } while (true);
         $data = json_decode($response->getBody()->__toString(), true)['data'];
-
+        $url = Url::fromString($statusUrl);
+        if (count($url->getSegments()) == 5) { // shared job result URL
+            $result = (object) json_decode($data['attributes']['result']);
+        } else {    // 7 segments, 1-to-1 job to result url
+            $result = (object) $data['attributes']['result'];
+        }
         return new SharpApiJob(
             id: $data['id'],
             type: $data['attributes']['type'],
             status: $data['attributes']['status'],
-            result: $data['attributes']['result'] ?? null
+            result: $result ?? null
         );
     }
 
@@ -581,7 +587,8 @@ class SharpApiService
         string  $text,
         ?string $language = null,
         ?int    $maxLength = null,
-        ?string $voiceTone = null
+        ?string $voiceTone = null,
+        ?string $context = null
     ): string
     {
         $response = $this->makeRequest(
@@ -592,6 +599,7 @@ class SharpApiService
                 'language' => $language,
                 'max_length' => $maxLength,
                 'voice_tone' => $voiceTone,
+                'context' => $context,
             ]);
 
         return $this->parseStatusUrl($response);
@@ -608,7 +616,8 @@ class SharpApiService
         string  $text,
         ?string $language = null,
         ?int    $maxQuantity = null,
-        ?string $voiceTone = null
+        ?string $voiceTone = null,
+        ?string $context = null
     ): string
     {
         $response = $this->makeRequest(
@@ -619,6 +628,7 @@ class SharpApiService
                 'language' => $language,
                 'max_quantity' => $maxQuantity,
                 'voice_tone' => $voiceTone,
+                'context' => $context,
             ]);
 
         return $this->parseStatusUrl($response);
