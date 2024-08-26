@@ -2,9 +2,9 @@
 
 # SharpAPI PHP Client SDK
 
-### 🚀 AI-Powered Swiss Army Knife API
+### 🚀 Automate workflows with AI-powered API
 
-## Save countless hours and supercharge your app with AI capabilities in just 2 lines of code.
+## Leverage AI API to streamline workflows in E-Commerce, Marketing, Content Management, HR Tech, Travel, and more.
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/sharpapi/sharpapi-php-client.svg?style=flat-square)](https://packagist.org/packages/sharpapi/sharpapi-php-client)
 [![Total Downloads](https://img.shields.io/packagist/dt/sharpapi/sharpapi-php-client.svg?style=flat-square)](https://packagist.org/packages/sharpapi/sharpapi-php-client)
