@@ -1,6 +1,7 @@
 {
   "name": "sharpapi/sharpapi-php-client",
-  "description": "SharpAPI.com - AI-Powered Swiss Army Knife API. Save countless coding hours and supercharge your app with AI capabilities in just 2 lines of code.",
+  "description": "[DEPRECATED] This package is no longer maintained. Please use specific endpoint packages instead. SharpAPI.com - AI-Powered Swiss Army Knife API.",
+  "abandoned": true,
   "keywords": [
     "sharpapi",
     "ai-powered",

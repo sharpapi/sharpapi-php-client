@@ -1,5 +1,37 @@
 # Changelog
 
+## January 10, 2026 - v2.0.0 DEPRECATION NOTICE
+
+### ⚠️ BREAKING CHANGE: Package Deprecated
+
+This package (`sharpapi/sharpapi-php-client`) has been **deprecated** and is no longer maintained.
+
+**Why?**
+- Better performance with specialized packages
+- Smaller dependencies (install only what you need)
+- Easier maintenance and faster updates
+- Independent versioning per endpoint
+
+**What to do:**
+- **Existing users**: Your code will continue to work, but migrate to specialized packages for ongoing support
+- **New projects**: Use the new specialized packages instead
+
+**Migration:**
+All functionality has been split into **22 specialized packages** organized by category:
+
+- **Content & Marketing**: 9 packages for text processing, translation, summarization, etc.
+- **E-commerce**: 4 packages for product categorization, reviews, emails
+- **HR Tech**: 3 packages for job descriptions, skills, positions
+- **Travel & Hospitality**: 3 packages for reviews and categorization
+- **SEO**: 1 package for META tags generation
+- **Utilities**: 2 packages for airports and job positions databases
+
+See README.md for complete list and migration guide.
+
+**Source code unchanged**: This deprecation does not modify any existing functionality. All methods continue to work exactly as before for backward compatibility.
+
+---
+
 ## August 26, 2024 - v1.2.0 update
 - Generate Keywords/Tags & Summarize methods aquired optional `context` that allows to pass additional processing instructions for the provided `content`
 - API usege optimized internally, switched to AI job dispatch/result endpoint pairing mode
